@@ -1,6 +1,6 @@
 # Find Double Game
 
-Demo Apps [Link to Download App!](https://github.com/dwikresno/Find-Double-Game/blob/main/app/app.apk?raw=true)
+Demo Apps Android [Link to Download App!](https://github.com/dwikresno/Find-Double-Game/blob/main/app/app.apk?raw=true)
 
 ![Alt Text](https://github.com/dwikresno/Find-Double-Game/blob/main/app/example.gif)
 
