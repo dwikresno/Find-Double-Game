@@ -162,91 +162,66 @@ class _HomePageState extends State<HomePage> {
                           bottom: 10,
                         ),
                         child: GridView.builder(
-                            shrinkWrap: true,
-                            physics: NeverScrollableScrollPhysics(),
-                            gridDelegate:
-                                SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 4,
-                              childAspectRatio: 0.7,
-                              crossAxisSpacing: 10,
-                              mainAxisSpacing: 10,
-                            ),
-                            itemCount: listCard.length,
-                            itemBuilder: (BuildContext ctx, index) {
-                              return Stack(
-                                children: [
-                                  // Container(
-                                  //   width: double.infinity,
-                                  //   decoration: BoxDecoration(
-                                  //     borderRadius: BorderRadius.circular(15),
-                                  //     color: Colors.green,
-                                  //   ),
-                                  //   child: ClipRRect(
-                                  //     borderRadius: BorderRadius.circular(15),
-                                  //     child: Image.network(
-                                  //       listCard[index]["image"].toString(),
-                                  //       fit: BoxFit.cover,
-                                  //     ),
-                                  //   ),
-                                  // ),
-                                  //   width: listSelectedIndex.contains(index) ||
-                                  //           listChoosenIndex.contains(index)
-                                  //       ? 0
-                                  //       : null,
-                                  FlipCard(
-                                    key: cardKey[index],
-                                    controller: flipCardController,
-                                    flipOnTouch:
-                                        listChoosenIndex.contains(index),
-                                    fill: Fill
-                                        .fillBack, // Fill the back side of the card to make in the same size as the front.
-                                    direction:
-                                        FlipDirection.HORIZONTAL, // default
-                                    front: GestureDetector(
-                                      onTap: () {
-                                        if (!cardKey[index]
-                                            .currentState!
-                                            .controller!
-                                            .isAnimating) {
-                                          setCardToSelected(index);
-                                        }
-                                      },
-                                      child: Container(
-                                        width: double.infinity,
-                                        height: double.infinity,
-                                        decoration: BoxDecoration(
-                                          color: Colors.transparent,
-                                          borderRadius:
-                                              BorderRadius.circular(15),
-                                        ),
-                                        child: ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(15),
-                                          child: Image.network(
-                                            "https://i.pinimg.com/564x/c5/6a/13/c56a13dff431d0898f9a930024951dbb.jpg",
-                                            fit: BoxFit.cover,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                    back: Container(
-                                      width: double.infinity,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(15),
-                                        color: Colors.transparent,
-                                      ),
-                                      child: ClipRRect(
-                                        borderRadius: BorderRadius.circular(15),
-                                        child: Image.network(
-                                          listCard[index]["image"].toString(),
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
+                          shrinkWrap: true,
+                          physics: NeverScrollableScrollPhysics(),
+                          gridDelegate:
+                              SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 4,
+                            childAspectRatio: 0.7,
+                            crossAxisSpacing: 10,
+                            mainAxisSpacing: 10,
+                          ),
+                          itemCount: listCard.length,
+                          itemBuilder: (BuildContext ctx, index) {
+                            return FlipCard(
+                              key: cardKey[index],
+                              controller: flipCardController,
+                              flipOnTouch: listChoosenIndex.contains(index),
+                              fill: Fill
+                                  .fillBack, // Fill the back side of the card to make in the same size as the front.
+                              direction: FlipDirection.HORIZONTAL, // default
+                              front: GestureDetector(
+                                onTap: () {
+                                  if (!cardKey[index]
+                                      .currentState!
+                                      .controller!
+                                      .isAnimating) {
+                                    setCardToSelected(index);
+                                  }
+                                },
+                                child: Container(
+                                  width: double.infinity,
+                                  height: double.infinity,
+                                  decoration: BoxDecoration(
+                                    color: Colors.transparent,
+                                    borderRadius: BorderRadius.circular(15),
+                                  ),
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(15),
+                                    child: Image.network(
+                                      "https://i.pinimg.com/564x/c5/6a/13/c56a13dff431d0898f9a930024951dbb.jpg",
+                                      fit: BoxFit.cover,
                                     ),
                                   ),
-                                ],
-                              );
-                            }),
+                                ),
+                              ),
+                              back: Container(
+                                width: double.infinity,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(15),
+                                  color: Colors.transparent,
+                                ),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(15),
+                                  child: Image.network(
+                                    listCard[index]["image"].toString(),
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
+                            );
+                          },
+                        ),
                       ),
                     ],
                   ),
